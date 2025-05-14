@@ -1,0 +1,6 @@
+name: Github
+version: 0.0.1
+schema: v1
+docs:
+  - name: Github API
+    startUrl: https://docs.github.com/en/apps/overview
