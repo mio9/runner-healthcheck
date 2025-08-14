@@ -5,7 +5,7 @@ const octokit = new Octokit({
   auth: process.env.GH_TOKEN
 })
 
-const response = await octokit.request('GET /orgs/swivelsoftware/actions/runners', {
+const response = await octokit.request(`GET /orgs/${process.env.GH_ORG}/actions/runners`, {
   org: 'ORG',
   headers: {
     'X-GitHub-Api-Version': '2022-11-28'
@@ -25,7 +25,7 @@ if (confirm !== 'y') {
 }
 
 for (const runner of offlineRunners) {
-  const response = await octokit.request('DELETE /orgs/swivelsoftware/actions/runners/{runner_id}', {
+  const response = await octokit.request(`DELETE /orgs/${process.env.GH_ORG}/actions/runners/{runner_id}`, {
     runner_id: runner.id,
     headers: {
       'X-GitHub-Api-Version': '2022-11-28'   

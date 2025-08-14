@@ -4,6 +4,8 @@ const octokit = new Octokit({
   auth: process.env.GH_TOKEN
 })
 
+const org = process.env.GH_ORG
+
 export interface RunnerResponse {
   total_count: number;
   runners:     Runner[];
@@ -26,7 +28,7 @@ export interface Label {
 }
 
 
-const response = await octokit.request('GET /orgs/swivelsoftware/actions/runners', {
+const response = await octokit.request(`GET /orgs/${org}/actions/runners`, {
   org: 'ORG',
   headers: {
     'X-GitHub-Api-Version': '2022-11-28'
